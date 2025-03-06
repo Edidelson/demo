@@ -1,0 +1,556 @@
+package com.example.demo;
+
+import br.com.apoiocotacoes.integrador.config.Constants;
+import br.com.apoiocotacoes.integrador.service.vo.NotaFiscalVO;
+import br.com.apoiocotacoes.integrador.service.vo.ProdutoVO;
+import br.com.apoiocotacoes.integrador.util.DateUtil;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+import org.apache.commons.compress.utils.Lists;
+
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.Date;
+import java.util.List;
+
+
+public class ProdutoDTO {
+
+    private Long ativo;
+    private String cdABC;
+    private String cdXYZ;
+    private String codigoCategoria;
+    private Long codigoClasse;
+    private String codigoEmbalagem;
+    private Long codigoEspecie;
+    private String codigoMestre;
+    private String codigoProduto;
+    private String codigoSolicitacaoCompraItem;
+    private Long codigoSubClasse;
+    private Long codigoUnidadeProduto;
+    private Instant dataPrecoVenda;
+    private Instant dataValorLPM;
+    private Instant dataValorTNUMM;
+    private String descClasse;
+    private String descComplementarProduto;
+    private String descEmbalagem;
+    private String descEspecie;
+    private String descProduto;
+    private String descSubClasse;
+    private String descUnidade;
+    private String etiquetaDataMatrix;
+    private BigDecimal fator;
+    private String marcasAprovadasInterno;
+    private String marcasPreferidas;
+    private Long mestre;
+    private String nomeUnidade;
+    private String operacao;
+    private BigDecimal precoReferencia;
+    private BigDecimal precoVenda;
+    private BigDecimal quantidade;
+    private BigDecimal quantidadeAtendida;
+    private BigDecimal quantidadeEntradaTotal;
+    private String sicam;
+    private BigDecimal valorCustoReal;
+    private BigDecimal valorIpiProduto;
+    private BigDecimal valorIssProduto;
+    private BigDecimal valorLPM;
+    private BigDecimal valorPercentualIpiProduto;
+    private BigDecimal valorPercentualIssProduto;
+    private BigDecimal valorTNUMM;
+    private BigDecimal valorTotal;
+    private BigDecimal valorTotalCustoReal;
+    private BigDecimal valorUnitario;
+    private BigDecimal vlCustoMedioProduto;
+    private List<UnidadeMedidaDTO> listaUnidadesMedida = Lists.newArrayList();
+    private List<LoteProdutoDTO> listaLoteProduto = Lists.newArrayList();
+    private List<ProgramacaoEntregaDTO> listaProgramacaoEntrega = Lists.newArrayList();
+    private Long codigoEmpresa;
+    private Long codAnvisa;
+    private Long codTinumm;
+    private Date dataVigenciaAns;
+    private Date dataVigenciaTNUMM;
+    private String descOrigemProduto;
+
+    private Long documentoBaseErp;
+    private Long numeroInternoDocumentoBaseErp;
+    private Integer numeroLinhaDocumentoBaseErp;
+    
+    public Long getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Long ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getCdABC() {
+        return cdABC;
+    }
+
+    public void setCdABC(String cdABC) {
+        this.cdABC = cdABC;
+    }
+
+    public String getCdXYZ() {
+        return cdXYZ;
+    }
+
+    public void setCdXYZ(String cdXYZ) {
+        this.cdXYZ = cdXYZ;
+    }
+
+    public String getCodigoCategoria() {
+        return codigoCategoria;
+    }
+
+    public void setCodigoCategoria(String codigoCategoria) {
+        this.codigoCategoria = codigoCategoria;
+    }
+
+    public Long getCodigoClasse() {
+        return codigoClasse;
+    }
+
+    public void setCodigoClasse(Long codigoClasse) {
+        this.codigoClasse = codigoClasse;
+    }
+
+    public String getCodigoEmbalagem() {
+        return codigoEmbalagem;
+    }
+
+    public void setCodigoEmbalagem(String codigoEmbalagem) {
+        this.codigoEmbalagem = codigoEmbalagem;
+    }
+
+    public Long getCodigoEspecie() {
+        return codigoEspecie;
+    }
+
+    public void setCodigoEspecie(Long codigoEspecie) {
+        this.codigoEspecie = codigoEspecie;
+    }
+
+    public String getCodigoMestre() {
+        return codigoMestre;
+    }
+
+    public void setCodigoMestre(String codigoMestre) {
+        this.codigoMestre = codigoMestre;
+    }
+
+    public String getCodigoProduto() {
+        return codigoProduto;
+    }
+
+    public void setCodigoProduto(String codigoProduto) {
+        this.codigoProduto = codigoProduto;
+    }
+
+    public String getCodigoSolicitacaoCompraItem() {
+        return codigoSolicitacaoCompraItem;
+    }
+
+    public void setCodigoSolicitacaoCompraItem(String codigoSolicitacaoCompraItem) {
+        this.codigoSolicitacaoCompraItem = codigoSolicitacaoCompraItem;
+    }
+
+    public Long getCodigoSubClasse() {
+        return codigoSubClasse;
+    }
+
+    public void setCodigoSubClasse(Long codigoSubClasse) {
+        this.codigoSubClasse = codigoSubClasse;
+    }
+
+    public Long getCodigoUnidadeProduto() {
+        return codigoUnidadeProduto;
+    }
+
+    public void setCodigoUnidadeProduto(Long codigoUnidadeProduto) {
+        this.codigoUnidadeProduto = codigoUnidadeProduto;
+    }
+
+    public Instant getDataPrecoVenda() {
+        return dataPrecoVenda;
+    }
+
+    public void setDataPrecoVenda(Instant dataPrecoVenda) {
+        this.dataPrecoVenda = dataPrecoVenda;
+    }
+
+    public Instant getDataValorLPM() {
+        return dataValorLPM;
+    }
+
+    public void setDataValorLPM(Instant dataValorLPM) {
+        this.dataValorLPM = dataValorLPM;
+    }
+
+    public Instant getDataValorTNUMM() {
+        return dataValorTNUMM;
+    }
+
+    public void setDataValorTNUMM(Instant dataValorTNUMM) {
+        this.dataValorTNUMM = dataValorTNUMM;
+    }
+
+    public String getDescClasse() {
+        return descClasse;
+    }
+
+    public void setDescClasse(String descClasse) {
+        this.descClasse = descClasse;
+    }
+
+    public String getDescComplementarProduto() {
+        return descComplementarProduto;
+    }
+
+    public void setDescComplementarProduto(String descComplementarProduto) {
+        this.descComplementarProduto = descComplementarProduto;
+    }
+
+    public String getDescEmbalagem() {
+        return descEmbalagem;
+    }
+
+    public void setDescEmbalagem(String descEmbalagem) {
+        this.descEmbalagem = descEmbalagem;
+    }
+
+    public String getDescEspecie() {
+        return descEspecie;
+    }
+
+    public void setDescEspecie(String descEspecie) {
+        this.descEspecie = descEspecie;
+    }
+
+    public String getDescProduto() {
+        return descProduto;
+    }
+
+    public void setDescProduto(String descProduto) {
+        this.descProduto = descProduto;
+    }
+
+    public String getDescSubClasse() {
+        return descSubClasse;
+    }
+
+    public void setDescSubClasse(String descSubClasse) {
+        this.descSubClasse = descSubClasse;
+    }
+
+    public String getDescUnidade() {
+        return descUnidade;
+    }
+
+    public void setDescUnidade(String descUnidade) {
+        this.descUnidade = descUnidade;
+    }
+
+    public String getEtiquetaDataMatrix() {
+        return etiquetaDataMatrix;
+    }
+
+    public void setEtiquetaDataMatrix(String etiquetaDataMatrix) {
+        this.etiquetaDataMatrix = etiquetaDataMatrix;
+    }
+
+    public BigDecimal getFator() {
+        return fator;
+    }
+
+    public void setFator(BigDecimal fator) {
+        this.fator = fator;
+    }
+
+    public String getMarcasAprovadasInterno() {
+        return marcasAprovadasInterno;
+    }
+
+    public void setMarcasAprovadasInterno(String marcasAprovadasInterno) {
+        this.marcasAprovadasInterno = marcasAprovadasInterno;
+    }
+
+    public String getMarcasPreferidas() {
+        return marcasPreferidas;
+    }
+
+    public void setMarcasPreferidas(String marcasPreferidas) {
+        this.marcasPreferidas = marcasPreferidas;
+    }
+
+    public Long getMestre() {
+        return mestre;
+    }
+
+    public void setMestre(Long mestre) {
+        this.mestre = mestre;
+    }
+
+    public String getNomeUnidade() {
+        return nomeUnidade;
+    }
+
+    public void setNomeUnidade(String nomeUnidade) {
+        this.nomeUnidade = nomeUnidade;
+    }
+
+    public String getOperacao() {
+        return operacao;
+    }
+
+    public void setOperacao(String operacao) {
+        this.operacao = operacao;
+    }
+
+    public BigDecimal getPrecoReferencia() {
+        return precoReferencia;
+    }
+
+    public void setPrecoReferencia(BigDecimal precoReferencia) {
+        this.precoReferencia = precoReferencia;
+    }
+
+    public BigDecimal getPrecoVenda() {
+        return precoVenda;
+    }
+
+    public void setPrecoVenda(BigDecimal precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+
+    public BigDecimal getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(BigDecimal quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public BigDecimal getQuantidadeAtendida() {
+        return quantidadeAtendida;
+    }
+
+    public void setQuantidadeAtendida(BigDecimal quantidadeAtendida) {
+        this.quantidadeAtendida = quantidadeAtendida;
+    }
+
+    public BigDecimal getQuantidadeEntradaTotal() {
+        return quantidadeEntradaTotal;
+    }
+
+    public void setQuantidadeEntradaTotal(BigDecimal quantidadeEntradaTotal) {
+        this.quantidadeEntradaTotal = quantidadeEntradaTotal;
+    }
+
+    public String getSicam() {
+        return sicam;
+    }
+
+    public void setSicam(String sicam) {
+        this.sicam = sicam;
+    }
+
+    public BigDecimal getValorCustoReal() {
+        return valorCustoReal;
+    }
+
+    public void setValorCustoReal(BigDecimal valorCustoReal) {
+        this.valorCustoReal = valorCustoReal;
+    }
+
+    public BigDecimal getValorIpiProduto() {
+        return valorIpiProduto;
+    }
+
+    public void setValorIpiProduto(BigDecimal valorIpiProduto) {
+        this.valorIpiProduto = valorIpiProduto;
+    }
+
+    public BigDecimal getValorIssProduto() {
+        return valorIssProduto;
+    }
+
+    public void setValorIssProduto(BigDecimal valorIssProduto) {
+        this.valorIssProduto = valorIssProduto;
+    }
+
+    public BigDecimal getValorLPM() {
+        return valorLPM;
+    }
+
+    public void setValorLPM(BigDecimal valorLPM) {
+        this.valorLPM = valorLPM;
+    }
+
+    public BigDecimal getValorPercentualIpiProduto() {
+        return valorPercentualIpiProduto;
+    }
+
+    public void setValorPercentualIpiProduto(BigDecimal valorPercentualIpiProduto) {
+        this.valorPercentualIpiProduto = valorPercentualIpiProduto;
+    }
+
+    public BigDecimal getValorPercentualIssProduto() {
+        return valorPercentualIssProduto;
+    }
+
+    public void setValorPercentualIssProduto(BigDecimal valorPercentualIssProduto) {
+        this.valorPercentualIssProduto = valorPercentualIssProduto;
+    }
+
+    public BigDecimal getValorTNUMM() {
+        return valorTNUMM;
+    }
+
+    public void setValorTNUMM(BigDecimal valorTNUMM) {
+        this.valorTNUMM = valorTNUMM;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public BigDecimal getValorTotalCustoReal() {
+        return valorTotalCustoReal;
+    }
+
+    public void setValorTotalCustoReal(BigDecimal valorTotalCustoReal) {
+        this.valorTotalCustoReal = valorTotalCustoReal;
+    }
+
+    public BigDecimal getValorUnitario() {
+        return valorUnitario;
+    }
+
+    public void setValorUnitario(BigDecimal valorUnitario) {
+        this.valorUnitario = valorUnitario;
+    }
+
+    public BigDecimal getVlCustoMedioProduto() {
+        return vlCustoMedioProduto;
+    }
+
+    public void setVlCustoMedioProduto(BigDecimal vlCustoMedioProduto) {
+        this.vlCustoMedioProduto = vlCustoMedioProduto;
+    }
+
+
+
+    public List<UnidadeMedidaDTO> getListaUnidadesMedida() {
+        return listaUnidadesMedida;
+    }
+
+    public void setListaUnidadesMedida(List<UnidadeMedidaDTO> listaUnidadesMedida) {
+        this.listaUnidadesMedida = listaUnidadesMedida;
+    }
+
+    public void addListUnidadesMedida(UnidadeMedidaDTO unidadeMedidaDTO){
+        this.listaUnidadesMedida.add(unidadeMedidaDTO);
+    }
+
+    public List<LoteProdutoDTO> getListaLoteProduto() {
+        return listaLoteProduto;
+    }
+
+    public void setListaLoteProduto(List<LoteProdutoDTO> listaLoteProduto) {
+        this.listaLoteProduto = listaLoteProduto;
+    }
+
+    public void addListLoteProduto(LoteProdutoDTO loteProdutoDTO){
+        this.listaLoteProduto.add(loteProdutoDTO);
+    }
+
+    public List<ProgramacaoEntregaDTO> getListaProgramacaoEntrega() {
+        return listaProgramacaoEntrega;
+    }
+
+    public void setListaProgramacaoEntrega(List<ProgramacaoEntregaDTO> listaProgramacaoEntrega) {
+        this.listaProgramacaoEntrega = listaProgramacaoEntrega;
+    }
+
+    public void addListProgramacaoEntrega(ProgramacaoEntregaDTO programacaoEntregaDTO){
+        this.listaProgramacaoEntrega.add(programacaoEntregaDTO);
+    }
+
+    public Long getCodigoEmpresa() {
+        return codigoEmpresa;
+    }
+
+    public void setCodigoEmpresa(Long codigoEmpresa) {
+        this.codigoEmpresa = codigoEmpresa;
+    }
+
+    public Long getCodAnvisa() {
+        return codAnvisa;
+    }
+
+    public void setCodAnvisa(Long codAnvisa) {
+        this.codAnvisa = codAnvisa;
+    }
+
+    public Long getCodTinumm() {
+        return codTinumm;
+    }
+
+    public void setCodTinumm(Long codTinumm) {
+        this.codTinumm = codTinumm;
+    }
+
+    public Date getDataVigenciaAns() {
+        return dataVigenciaAns;
+    }
+
+    public void setDataVigenciaAns(Date dataVigenciaAns) {
+        this.dataVigenciaAns = dataVigenciaAns;
+    }
+
+    public Date getDataVigenciaTNUMM() {
+        return dataVigenciaTNUMM;
+    }
+
+    public void setDataVigenciaTNUMM(Date dataVigenciaTNUMM) {
+        this.dataVigenciaTNUMM = dataVigenciaTNUMM;
+    }
+
+    public String getDescOrigemProduto() {
+        return descOrigemProduto;
+    }
+
+    public void setDescOrigemProduto(String descOrigemProduto) {
+        this.descOrigemProduto = descOrigemProduto;
+    }
+
+    public Long getDocumentoBaseErp() {
+        return documentoBaseErp;
+    }
+
+    public void setDocumentoBaseErp(Long documentoBaseErp) {
+        this.documentoBaseErp = documentoBaseErp;
+    }
+
+    public Long getNumeroInternoDocumentoBaseErp() {
+        return numeroInternoDocumentoBaseErp;
+    }
+
+    public void setNumeroInternoDocumentoBaseErp(Long numeroInternoDocumentoBaseErp) {
+        this.numeroInternoDocumentoBaseErp = numeroInternoDocumentoBaseErp;
+    }
+
+    public Integer getNumeroLinhaDocumentoBaseErp() {
+        return numeroLinhaDocumentoBaseErp;
+    }
+
+    public void setNumeroLinhaDocumentoBaseErp(Integer numeroLinhaDocumentoBaseErp) {
+        this.numeroLinhaDocumentoBaseErp = numeroLinhaDocumentoBaseErp;
+    }
+}

@@ -1,0 +1,58 @@
+package com.example.demo;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+public class JavaPuro {
+
+    public static void main(String[] args) throws ProtocolException, MalformedURLException {
+        // URL da página onde o formulário está
+        String url = "https://nfe.prefeitura.sp.gov.br/publico/verificacao.aspx";
+
+        // Dados a serem enviados no formulário
+        String formData = "ctl00$body$tbCPFCNPJ=10.864.846%2F0033-00"
+                + "&ctl00$body$tbNota=4763890"
+                + "&ctl00$body$tbVerificacao=ABMP-7U6G"
+                + "&ctl00$body$btVerificar=Verificar Autenticidade";
+
+        // Cria a URL
+        URL obj = new URL(url);
+
+        // Cria a conexão HTTP
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+        // Define o método HTTP como POST
+        con.setRequestMethod("POST");
+        con.setDoOutput(true);
+        con.setDoInput(true);
+        con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+        // Envia os dados do formulário
+        try (OutputStream os = con.getOutputStream()) {
+            byte[] input = formData.getBytes(StandardCharsets.UTF_8);
+            os.write(input, 0, input.length);
+        }
+
+        // Lê a resposta do servidor
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+
+            // Exibe a resposta (pode conter o link para o download da nota)
+            System.out.println(response.toString());
+        }
+
+        con.disconnect();
+
+    }
+}

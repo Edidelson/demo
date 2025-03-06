@@ -1,0 +1,59 @@
+package com.example.demo;
+
+public class UnidadeMedidaDTO {
+
+    private String codigoUnidadeProduto;
+    private String descUnidade;
+    private String nomeUnidade;
+    private String fator;
+    private String tipoUnidade;
+    private String situacao;
+
+    public String getCodigoUnidadeProduto() {
+        return codigoUnidadeProduto;
+    }
+
+    public void setCodigoUnidadeProduto(String codigoUnidadeProduto) {
+        this.codigoUnidadeProduto = codigoUnidadeProduto;
+    }
+
+    public String getDescUnidade() {
+        return descUnidade;
+    }
+
+    public void setDescUnidade(String descUnidade) {
+        this.descUnidade = descUnidade;
+    }
+
+    public String getNomeUnidade() {
+        return nomeUnidade;
+    }
+
+    public void setNomeUnidade(String nomeUnidade) {
+        this.nomeUnidade = nomeUnidade;
+    }
+
+    public String getFator() {
+        return fator;
+    }
+
+    public void setFator(String fator) {
+        this.fator = fator;
+    }
+
+    public String getTipoUnidade() {
+        return tipoUnidade;
+    }
+
+    public void setTipoUnidade(String tipoUnidade) {
+        this.tipoUnidade = tipoUnidade;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+}

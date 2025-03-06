@@ -1,0 +1,39 @@
+package com.example.demo;
+
+import com.microsoft.playwright.*;
+
+public class PlaywrightExample {
+    public static void main(String[] args) {
+        // Iniciar o Playwright e o navegador
+        try (Playwright playwright = Playwright.create()) {
+            // Lançar o navegador em modo headless (sem interface gráfica)
+            Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));  // Defina headless como true
+            BrowserContext context = browser.newContext();
+
+            // Criar uma nova página
+            Page page = context.newPage();
+
+            // Acessar a página de verificação
+            page.navigate("https://nfe.prefeitura.sp.gov.br/publico/verificacao.aspx");
+
+            // Preencher os campos
+            page.fill("#ctl00_body_tbNota", "4763890");
+            page.fill("#ctl00_body_tbVerificacao", "ABMP-7U6G");
+            page.fill("#ctl00_body_tbCPFCNPJ", "10.864.846/0033-00");
+
+            // Clicar no botão de verificação
+            page.click("#ctl00_body_btVerificar");
+
+            // Esperar o resultado da página (ajustar o tempo de espera conforme necessário)
+            page.waitForTimeout(5000);  // Ajuste o tempo conforme necessário para o download ou processamento
+
+            // Capturar a URL base da página após o clique (ou outro conteúdo desejado)
+            System.out.println("URL da página após clique: " + page.url());
+
+            // Fechar o navegador
+            browser.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
