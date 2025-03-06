@@ -1,10 +1,4 @@
-FROM ubuntu:latest
-LABEL authors="edidelson"
-
+FROM openjdk:21-jre-slim
 WORKDIR /app
-
-COPY . .
-
-RUN mvn clean package -DskipTests
-
-ENTRYPOINT ["top", "-b"]
+COPY target/your-app.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
