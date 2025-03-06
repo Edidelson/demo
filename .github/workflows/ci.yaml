@@ -15,7 +15,7 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       - run: mvn test
-      - run: javac DemoApplication.java && java DemoApplication
+      - run: javac com.example.demo.HtmUnit.java && java com.example.demo.HtmUnit
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
